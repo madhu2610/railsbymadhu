@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+<h1 class="display-4" style="font-size: 2.5rem">
+<%= @student_profile.student.first_name %>
+<%= @student_profile.student.last_name %>
+</h1>
+
+<p>
+  <strong>Mark1:</strong>
+  <%= @student_profile.mark1 %>
+</p>
+
+<p>
+  <strong>Mark2:</strong>
+  <%= @student_profile.mark2 %>
+</p>
+
+<p>
+  <strong>Mark3:</strong>
+  <%= @student_profile.mark3 %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @student_profile.total %>
+</p>
+
+
+<p>
+<%= link_to 'Edit', edit_student_profile_path(@student_profile), :class=> "btn btn-secondary text-light" %> |
+<%= link_to 'Back', student_profiles_path,:class=> "btn btn-dark text-light" %>
+</p>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

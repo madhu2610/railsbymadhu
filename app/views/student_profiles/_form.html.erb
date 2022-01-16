@@ -1,0 +1,56 @@
+<div class="form-body">
+<div class="row">
+    <div class="form-holder">
+        <div class="form-content">
+            <div class="form-items">
+            <%= form_with(model: student_profile) do |form| %>
+              <% if student_profile.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(student_profile.errors.count, "error") %> prohibited this student_profile from being saved:</h2>
+            
+              
+                </div>
+              <% end %>
+                    <div class="col-md-12">
+                        <%= form.number_field :mark1, placeholder: "Mark 1",:class=>"form-control" %>
+                        <div class="text-danger-color"><%= student_profile.errors.full_messages_for(:mark1).join(' and ') %>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <%= form.number_field :mark2, placeholder: "Mark 2",:class=>"form-control" %>
+                        <div class="text-danger-color"><%= student_profile.errors.full_messages_for(:mark2).join(' and ') %>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <%= form.number_field :mark3, placeholder: "Mark 3",:class=>"form-control" %>
+                        <div class="text-danger-color"><%= student_profile.errors.full_messages_for(:mark3).join(' and ') %>
+                        </div>
+                    </div>
+
+                   <div class="col-md-12">
+                    <%= form.number_field :total, placeholder: "Total",:class=>"form-control" %>
+                    <div class="text-danger-color"><%= student_profile.errors.full_messages_for(:total).join(' and ') %>
+                   </div>
+                   </div>
+                   
+                   <div class="col-md-12">
+                   <%= form.select :student_id,Student.all.collect {|t| [  t.first_name, t.id ] },:class => "form-select mt-3" %>
+                  <div class="text-danger-color">
+                  <%= student_profile.errors.full_messages_for(:student_id).join(' and ')  %>
+                  </div>
+                   </div>
+
+                   
+                <div class="form-button mt-3 text-center">
+                 
+                 <%= form.submit 'create student mark', :class => "btn bg-primary text-light"%>
+                </div>
+                <%end%>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
